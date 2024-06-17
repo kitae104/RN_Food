@@ -8,18 +8,24 @@ import {
   Text,
   View,
 } from "react-native";
+import Meal from "../models/meal";
+import MealDetails from "./MealDetails";
 
-const MealItem = ({ id, title, imageUrl, duration, complexity, affordability }) => {
-
+const MealItem = ({
+  id,
+  title,
+  imageUrl,
+  duration,
+  complexity,
+  affordability,
+}) => {
   const navigation = useNavigation(); // useNavigation 훅을 사용하여 navigation 객체를 가져옴
 
-  const selectMealHandler = () =>{
+  const selectMealHandler = () => {
     navigation.navigate("음식 상세", {
       mealId: id,
     }); // navigation 객체를 이용하여 다음 화면으로 이동
-  }
-
-
+  };
 
   return (
     <View style={styles.mealItem}>
@@ -27,22 +33,20 @@ const MealItem = ({ id, title, imageUrl, duration, complexity, affordability }) 
         android_ripple={{ color: "#ccc" }}
         style={({ pressed }) => [
           styles.button,
-          pressed ? styles.buttonPressed : null,          
+          pressed ? styles.buttonPressed : null,
         ]}
         onPress={selectMealHandler}
-
-
       >
         <View style={styles.innerContainer}>
           <View>
             <Image source={{ uri: imageUrl }} style={styles.image} />
             <Text style={styles.title}>{title}</Text>
           </View>
-          <View style={styles.details}>
-            <Text style={styles.detailItem}>{duration}</Text>
-            <Text style={styles.detailItem}>{complexity.toUpperCase()}</Text>
-            <Text style={styles.detailItem}>{affordability.toUpperCase()}</Text>
-          </View>
+          <MealDetails
+            duration={duration}
+            complexity={complexity}
+            affordability={affordability}
+          />
         </View>
       </Pressable>
     </View>
