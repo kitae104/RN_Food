@@ -3,3 +3,4 @@
 - cd 프로젝트이름
 - npm start 로 실행 (Expo go 에뮬레이터 사용 가능) 
 - App.js 내용 확인 
+- npx expo start
