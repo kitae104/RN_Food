@@ -1,9 +1,5 @@
-class Category {
-  constructor(id, title, color) {
-    this.id = id;
-    this.title = title;
-    this.color = color;
-  }
+function Category(id, title, color) {
+  return { id, title, color };
 }
 
 export default Category;

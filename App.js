@@ -1,12 +1,12 @@
 import { StatusBar } from "expo-status-bar";
-import { Button, StyleSheet, Text, View } from "react-native";
+import { StyleSheet } from "react-native";
 
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import CategoriesScreen from "./screens/CategoriesScreen";
-import MealsOverviewScreen from "./screens/MealsOverviewScreen";
 import MealDetailScreen from "./screens/MealDetailScreen";
+import MealsOverviewScreen from "./screens/MealsOverviewScreen";
 
 const Stack = createNativeStackNavigator(); // Stack Navigator 생성
 
@@ -31,7 +31,8 @@ export default function App() {
             name="MealsCategories"
             component={CategoriesScreen}
             options={{
-              /* 각 Screen 별로 options 설정 */ title: "전체 음식 카테고리",
+              /* 각 Screen 별로 options 설정 */ 
+              title: "전체 음식 카테고리",
             }}
           />
           <Stack.Screen
