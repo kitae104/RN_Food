@@ -13,8 +13,8 @@ const CategoriesScreen = ({ navigation }) => {
     const renderCategoryItem = (itemData) => {
         const pressHandler = () => {
             navigation.navigate("음식 개요", {
-                categoryId: itemData.item.id,
-                categoryTitle: itemData.item.title,
+                categoryId: itemData.item.id, // 카테고리 ID
+                categoryTitle: itemData.item.title, // 카테고리 제목
             }); // navigation을 이용하여 MealsOverviewScreen으로 이동
         };
 
