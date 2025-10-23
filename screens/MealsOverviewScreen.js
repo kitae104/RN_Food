@@ -35,7 +35,9 @@ const MealsOverviewScreen = ({ route, navigation }) => {
     useLayoutEffect(() => {
         const category = CATEGORIES.find((c) => c.id === categoryId); // 해당 카테고리 객체 조회
         const categoryTitle = category ? category.title : "Meals"; // 안전한 기본값 처리
-        navigation.setOptions({ title: categoryTitle }); // 헤더 타이틀 설정
+        
+        // 헤더 타이틀 설정(새로운 타이틀로 업데이트)
+        navigation.setOptions({ title: categoryTitle }); 
     }, [categoryId, navigation]);
 
     /**

@@ -50,6 +50,8 @@ const MealItem = ({
         }); // 상세 화면으로 mealId 전달
     };
 
+    const browserUserAgent = 'Mozilla/5.0'; // 이미지 로딩 시 User-Agent 헤더 설정
+
     return (
         <View style={styles.mealItem}>
             <TouchableOpacity
@@ -62,15 +64,20 @@ const MealItem = ({
                 <View style={styles.innerContainer}>
                     <View>
                         <Image
-                            source={{ uri: imageUrl }}  // 이미지 URI
-                            style={styles.image}  // 이미지 스타일 적용 
+                            source={{
+                                uri: imageUrl,
+                                headers: {
+                                    "User-Agent": browserUserAgent,
+                                },
+                            }} // 이미지 URI
+                            style={styles.image} // 이미지 스타일 적용
                         />
                         <Text style={styles.title}>{title}</Text>
                     </View>
                     <MealDetails
-                        duration={duration}  // 소요 시간
-                        complexity={complexity}  // 난이도
-                        affordability={affordability}  // 가격대
+                        duration={duration} // 소요 시간
+                        complexity={complexity} // 난이도
+                        affordability={affordability} // 가격대
                     />
                 </View>
             </TouchableOpacity>
@@ -105,7 +112,7 @@ const styles = StyleSheet.create({
         opacity: 0.5, // iOS에서 터치 시 시각적 피드백
     },
     innerContainer: {
-        borderRadius: 8,  // 모서리를 둥글게 처리
+        borderRadius: 8, // 모서리를 둥글게 처리
         overflow: "hidden", // 내부 요소가 둥근 모서리를 넘지 않도록 처리
     },
     image: {

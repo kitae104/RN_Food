@@ -29,17 +29,18 @@ const Stack = createNativeStackNavigator(); // 네이티브 스택 네비게이�
 export default function App() {
     return (
         <>
-            <StatusBar style="light" />
+            <StatusBar style="light" backgroundColor="#341d07" translucent={false} />
             {/* 상태 표시줄을 라이트 스타일로 설정 */}
             <NavigationContainer>
                 <Stack.Navigator
+                    // 공통 부분 설정
                     screenOptions={{
                         headerStyle: {
-                            backgroundColor: "#351401", // 헤더 배경색
+                            backgroundColor: "#341d07", // 헤더 배경색
                         },
                         headerTintColor: "white", // 헤더 텍스트 및 아이콘 색상
                         contentStyle: {
-                            backgroundColor: "#3f2f25", // 화면 배경색
+                            backgroundColor: "#866754", // 화면 배경색
                         },
                     }}
                 >
@@ -53,12 +54,10 @@ export default function App() {
                     <Stack.Screen
                         name="음식 개요"
                         component={MealsOverviewScreen}
-                        // MealsOverviewScreen 내부에서 동적으로 헤더 타이틀을 설정함(useLayoutEffect 사용)
                     />
                     <Stack.Screen
                         name="음식 상세"
                         component={MealDetailScreen}
-                        // 필요 시 options로 headerRight 등의 커스텀 구성 가능
                     />
                 </Stack.Navigator>
             </NavigationContainer>

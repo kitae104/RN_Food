@@ -21,7 +21,7 @@ export const MEALS = [
         "토마토 소스 스파게티",
         "affordable",
         "simple",
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Spaghetti_Bolognese_mit_Parmesan_oder_Grana_Padano.jpg/800px-Spaghetti_Bolognese_mit_Parmesan_oder_Grana_Padano.jpg",
+        "https://cdn.pixabay.com/photo/2022/10/12/22/09/spaghetti-bolognese-7517639_1280.jpg",
         20,
         [
             "토마토 4개",

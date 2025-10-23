@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
         backgroundColor: "white", // 배경색을 흰색으로 설정
         shadowColor: "black", // 그림자 색을 검정색으로 설정
         shadowOpacity: 0.25, // 그림자 투명도를 25%로 설정
-        shadowOffset: { width: 0, height: 2 }, // 그림자 위치를 설정
+        shadowOffset: { width: 1, height: 3 }, // 그림자 위치를 설정
         shadowRadius: 8, // 그림자의 반경을 8px로 설정
         overflow: Platform.OS === "android" ? "hidden" : "visible", // 자식 컴포넌트가 부모 컴포넌트를 벗어나는 부분을 숨김
     },

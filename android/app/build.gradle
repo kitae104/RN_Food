@@ -144,6 +144,28 @@ android {
             useLegacyPackaging (findProperty('expo.useLegacyPackaging')?.toBoolean() ?: false)
         }
     }
+
+    // === Java 21 구성 (활성화됨) ===
+    // Ensure you have JDK 21 installed and available on your machine before building.
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_21
+        targetCompatibility JavaVersion.VERSION_21
+    }
+
+    kotlinOptions {
+        // Kotlin Gradle Plugin and Kotlin version must support jvmTarget=21.
+        jvmTarget = "21"
+    }
+
+    // Gradle toolchain: preferred approach to select a Java version for the build
+    // (Gradle will provision a matching JDK if necessary).
+    java {
+        toolchain {
+            languageVersion = JavaLanguageVersion.of(21)
+        }
+    }
+
+    // ==================================
 }
 
 // Apply static values from `gradle.properties` to the `android.packagingOptions`
