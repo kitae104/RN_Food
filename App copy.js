@@ -13,59 +13,12 @@ import { StyleSheet } from "react-native";
 
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { createDrawerNavigator } from "@react-navigation/drawer";
-import { Ionicons } from "@expo/vector-icons";
 
 import CategoriesScreen from "./screens/CategoriesScreen";
 import MealDetailScreen from "./screens/MealDetailScreen";
 import MealsOverviewScreen from "./screens/MealsOverviewScreen";
-import FavoritesScreen from "./screens/FavoriesScreen";
 
 const Stack = createNativeStackNavigator(); // 네이티브 스택 네비게이터 생성
-const Drawer = createDrawerNavigator(); // 드로어 네비게이터 생성
-
-const DrawerNavigator = () => {
-    return (
-        <Drawer.Navigator
-            screenOptions={{
-                headerStyle: {
-                    backgroundColor: "#341d07",
-                },
-                headerTintColor: "white",
-                contentStyle: { 
-                    backgroundColor: "#866754" 
-                },
-                drawerContentStyle: { 
-                    backgroundColor: "#341d07" 
-                },
-                drawerInactiveTintColor: "white",
-                drawerActiveTintColor: "#351401",
-                drawerActiveBackgroundColor: "#e4baa1",
-            }}
-        >
-            <Drawer.Screen
-                name="MealsCategories"
-                component={CategoriesScreen}
-                options={{
-                    title: "전체 음식 카테고리",
-                    drawerIcon: ({ color, size }) => (
-                        <Ionicons name="list" color={color} size={size} />
-                    ),
-                }}
-            />
-            <Drawer.Screen 
-                name="즐겨찾기" 
-                component={FavoritesScreen} 
-                options={{
-                    title: "전체 음식 카테고리",
-                    drawerIcon: ({ color, size }) => (
-                        <Ionicons name="star" color={color} size={size} />
-                    ),
-                }}
-            />
-        </Drawer.Navigator>
-    );
-};
 
 /**
  * App 컴포넌트 (앱 진입점)
@@ -76,11 +29,7 @@ const DrawerNavigator = () => {
 export default function App() {
     return (
         <>
-            <StatusBar
-                style="light"
-                // backgroundColor="#341d07"
-                // translucent={false}
-            />
+            <StatusBar style="light" backgroundColor="#341d07" translucent={false} />
             {/* 상태 표시줄을 라이트 스타일로 설정 */}
             <NavigationContainer>
                 <Stack.Navigator
@@ -96,10 +45,10 @@ export default function App() {
                     }}
                 >
                     <Stack.Screen
-                        name="Drawer"
-                        component={DrawerNavigator}
+                        name="MealsCategories"
+                        component={CategoriesScreen}
                         options={{
-                            headerShown: false, // 드로어 네비게이터에서는 헤더 숨김
+                            title: "전체 음식 카테고리", // 스크린 타이틀 (한국어)
                         }}
                     />
                     <Stack.Screen
@@ -109,9 +58,6 @@ export default function App() {
                     <Stack.Screen
                         name="음식 상세"
                         component={MealDetailScreen}
-                        options={{
-                            title: '음식 상세',
-                    }}
                     />
                 </Stack.Navigator>
             </NavigationContainer>

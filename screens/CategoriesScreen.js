@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { CATEGORIES } from "../data/dummy-data";
-import { FlatList } from "react-native";
+import { FlatList, StyleSheet, View } from "react-native";
 import CategoryGridTile from "../components/CategoryGridTile";
 
 //========================================
@@ -29,12 +29,14 @@ const CategoriesScreen = ({ navigation }) => {
     };
 
     return (
+        <View style={styles.container}>
         <FlatList
-            data={CATEGORIES}
-            renderItem={renderCategoryItem}
-            keyExtractor={(item) => item.id}
-            numColumns={2} // 컬럼 수를 2로 설정
-        />
+                data={CATEGORIES}
+                renderItem={renderCategoryItem}
+                keyExtractor={(item) => item.id}
+                numColumns={2} // 컬럼 수를 2로 설정
+            />
+        </View>
     );
 };
 
@@ -42,4 +44,13 @@ CategoriesScreen.propTypes = {
     navigation: PropTypes.object.isRequired,
 };
 
+const styles = StyleSheet.create({
+    container: {
+        flex: 1, // 전체 공간 사용
+        backgroundColor: "#866754", // 배경색 설정
+    },
+});
+
+
 export default CategoriesScreen;
+
