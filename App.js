@@ -57,7 +57,7 @@ const DrawerNavigator = () => {
                 name="즐겨찾기" 
                 component={FavoritesScreen} 
                 options={{
-                    title: "전체 음식 카테고리",
+                    title: "즐겨찾기",
                     drawerIcon: ({ color, size }) => (
                         <Ionicons name="star" color={color} size={size} />
                     ),
